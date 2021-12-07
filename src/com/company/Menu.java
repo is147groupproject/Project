@@ -1,3 +1,4 @@
+package com.company;
 public class Menu {
     //print a "menu" that displays each snack's name, number to enter to select it, price, and amount in stock.
     //make sure to input the amount left as its array index because it can change

@@ -1,3 +1,4 @@
+package com.company;
 public class Receipt {
     //Create a method PrintReceipt
     //Use a scanner to scan the user's name and print it at the top of the receipt

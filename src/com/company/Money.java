@@ -1,3 +1,4 @@
+package com.company;
 public class Money {
     //create enterMoney method that returns an integer and has no parameters
         //Prompt the user to enter $1 and $5 bills

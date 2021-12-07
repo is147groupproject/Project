@@ -1,3 +1,4 @@
+package com.company;
 public class Item {
     //Create a default constructor for this parent class
     //Contains 3 methods that are passed down to subclasses,
