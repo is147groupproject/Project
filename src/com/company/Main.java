@@ -3,13 +3,7 @@ import java.util.Scanner;
 public class Main {
     /*Create a variable for money in the machine, and assign a value using the
     InsertMoney method from Money Class*/
-    public static double [] priceArray = {0, 3.99, 2.49, 1.99, 1.99, 3.50};
-    public static String [] nameArray = {null, "Pringles", "Twix", "Coke", "Sprite", "Gummies"};
-    public static int aPringles = 2;
-    public static int aTwix = 3;
-    public static int aCoke = 1;
-    public static int aSprite = 3;
-    public static int aGummies = 2;
+    public static int[] quantityArray = {0, 2, 3, 1, 3, 2};
     public static int total = 11;
     public static void main(String[] args) {
         double machineMoney = Money.EnterMoney();
@@ -27,48 +21,49 @@ public class Main {
         its price, and its current quantity as parameters*/
 
         for (int i = 0; i < 1;) {
-            Menu.PrintMenu();
-            System.out.println("Money in Machine: $" + machineMoney);
+            System.out.println("Money in Machine: $" + machineMoney + "\r\n*******************************");
+            Menu mainMenu = new Menu();
+            mainMenu.PrintMenu();
             int selection = scanner.nextInt();
             switch (selection) {
                 case 1:
                     Pringles pringles1 = new Pringles();
-                    aPringles = pringles1.getAmountLeft(aPringles, Pringles.price, machineMoney);
-                    machineMoney = pringles1.buyItem(aPringles, Pringles.price, machineMoney, selection);
-                    if(aPringles < 0){
-                        aPringles = 0;
+                    quantityArray[1] = pringles1.getAmountLeft(quantityArray[1], 1);
+                    machineMoney = pringles1.buyItem(quantityArray[1], Pringles.price, machineMoney, selection);
+                    if(quantityArray[1] < 0){
+                        quantityArray[1] = 0;
                     }
                     break;
                 case 2:
                     Twix twix1 = new Twix();
-                    aTwix = twix1.getAmountLeft(aTwix, Twix.price, machineMoney);
-                    machineMoney = twix1.buyItem(aTwix, Twix.price, machineMoney, selection);
-                    if(aTwix < 0){
-                        aTwix = 0;
+                    quantityArray[2] = twix1.getAmountLeft(quantityArray[2], 1);
+                    machineMoney = twix1.buyItem(quantityArray[2], Twix.price, machineMoney, selection);
+                    if(quantityArray[2] < 0){
+                        quantityArray[2] = 0;
                     }
                     break;
                 case 3:
                     Coke coke1 = new Coke();
-                    aCoke = coke1.getAmountLeft(aCoke, Coke.price, machineMoney);
-                    machineMoney = coke1.buyItem(aCoke, Coke.price, machineMoney, selection);
-                    if(aCoke < 0){
-                        aCoke = 0;
+                    quantityArray[3] = coke1.getAmountLeft(quantityArray[3], 1);
+                    machineMoney = coke1.buyItem(quantityArray[3], Coke.price, machineMoney, selection);
+                    if(quantityArray[3] < 0){
+                        quantityArray[3] = 0;
                     }
                     break;
                 case 4:
                     Sprite sprite1 = new Sprite();
-                    aSprite = sprite1.getAmountLeft(aSprite, Sprite.price, machineMoney);
-                    machineMoney = sprite1.buyItem(aSprite, Sprite.price, machineMoney, selection);
-                    if(aSprite < 0){
-                        aSprite = 0;
+                    quantityArray[4] = sprite1.getAmountLeft(quantityArray[4], 1);
+                    machineMoney = sprite1.buyItem(quantityArray[4], Sprite.price, machineMoney, selection);
+                    if(quantityArray[4] < 0){
+                        quantityArray[4] = 0;
                     }
                     break;
                 case 5:
                     Gummies gummies1 = new Gummies();
-                    aGummies = gummies1.getAmountLeft(aGummies, Gummies.price, machineMoney);
-                    machineMoney = gummies1.buyItem(aGummies, Gummies.price, machineMoney, selection);
-                    if(aGummies < 0){
-                        aGummies = 0;
+                    quantityArray[5] = gummies1.getAmountLeft(quantityArray[5], 1);
+                    machineMoney = gummies1.buyItem(quantityArray[5], Gummies.price, machineMoney, selection);
+                    if(quantityArray[5] < 0){
+                        quantityArray[5] = 0;
                     }
                     break;
                 default:
