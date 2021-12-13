@@ -1,14 +1,19 @@
 package com.company;
+import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     /*Create a variable for money in the machine, and assign a value using the
     InsertMoney method from Money Class*/
+    public static final int[] initialQuantityArray = {0, 2, 3, 1, 3, 2};
     public static int[] quantityArray = {0, 2, 3, 1, 3, 2};
-    public static int total = 11;
     public static void main(String[] args) {
+        String userName = Receipt.getName();
         double machineMoney = Money.EnterMoney();
-        Scanner scanner = new Scanner(System.in);
-
+        /*System.out.println("Hello, please enter your name: ");
+        Scanner nameScanner = new Scanner(System.in);
+        String nameInput = nameScanner.next();
+        String userName = new String(nameInput);
+        */
         //Main loop starts
         //In each iteration of the loop it will...
         //Prompt the user to make a selection and display the available snacks with their prices and amount in stock
@@ -24,7 +29,8 @@ public class Main {
             System.out.println("Money in Machine: $" + machineMoney + "\r\n*******************************");
             Menu mainMenu = new Menu();
             mainMenu.PrintMenu();
-            int selection = scanner.nextInt();
+            Scanner scanner2 = new Scanner(System.in);
+            int selection = scanner2.nextInt();
             switch (selection) {
                 case 1:
                     Pringles pringles1 = new Pringles();
@@ -69,19 +75,22 @@ public class Main {
                 default:
                     System.out.println("Error: Invalid input");
             }
-            total--;
+            int quantitySum = 0;
+            for (int j = 1; j < 6; j++) {
+                quantitySum += quantityArray[j];
+                System.out.println(quantitySum);
+            }
             System.out.println("Continue shopping? Press 1 for yes, 2 for no");
-
-            int yesorno = scanner.nextInt();
+            int yesorno = scanner2.nextInt();
             if (yesorno == 2) {
-                System.out.println("Have a good day!");
                 i++;
             }
-            else if (total == 0){
+            else if (quantitySum == 0){
                 System.out.println ("Sorry, we are out of snacks!");
                 i++;
             }
         }
+        Receipt.PrintReceipt(machineMoney, userName);
     }
 }
     //Invoke Receipt.printReceipt
